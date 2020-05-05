@@ -1,0 +1,79 @@
+{
+    
+   
+    "app_title" : "区块浏览器",
+    "corp" : "钻石网络",
+    "title": {
+      "block": "区块",
+      "account": "账号",
+      "asset" : "资产",
+      "dashboard" : "报表"
+    },
+    "search": {
+      "button" : "查找",
+      "placeholder" : "查找区块,账号,交易"
+    },
+    "dashboard" : {
+      "blockHeight" : "区块高度",
+      "totalTx" : "交易总数",
+      "totalAccount" : "账户总数",
+      "totalAsset" :"资产总数",
+      "latestBlock": "最新区块",
+      "latestTx": "最新交易",
+      "height": "高度",
+      "reward": "奖励金额",
+      "sent": "发送金额",
+      "txCounts": "交易次数",
+      "createdAt": "创建时间",
+      "txHash": "交易哈希",
+      "type": "类型",
+      "sender": "发送账号",
+      "recipient": "接收账号",
+      "quantity": "金额(DKD)"
+    },
+    "block" : {
+      "generator" : "挖矿账号",
+      "blockInfo" : "区块信息",
+      "txInfo" : "交易信息",
+      "sign" : "签名",
+      "version" : "版本",
+      "size" : "区块大小",
+      "fee" : "手续费"
+    },
+    "transaction" : {
+      "transfer" : "普通转账",
+      "batch" : "批量转账",
+      "assetIssue" : "发行资产",
+      "assetTransfer" : "资产转账",
+      "ask" : "买单",
+      "bid" : "买单",
+      "cancelAsk" : "取消卖单",
+      "cancelBid" : "取消买单",
+      "attachment" : "交易数据"
+    },
+    "account" : {
+      "name" : "账户名称",
+      "assetCounts" : "持有资产个数",
+      "received" : "接收金额",
+      "sent" : "发送金额",
+      "balance" : "余额(DKD)",
+      "info" : "账户信息",
+      "tx" : "账户交易",
+      "asset" : "账户资产",
+      "frozen" : "冻结余额",
+      "share" : "持有资产比例"
+    },
+    "asset" : {
+      "name" : "资产名称",
+      "id" : "资产名称",
+      "height" : "创建高度",
+      "issuer" : "发行账号",
+      "total" : "发行总量",
+      "info" : "资产信息",
+      "tx" : "资产交易",
+      "account" : "资产持有账号",
+      "description" : "描述",
+      "holderNum" : "持有账号个数",
+      "quantity" : "数量"
+    }
+  }

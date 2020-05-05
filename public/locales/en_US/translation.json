@@ -1,0 +1,78 @@
+{
+   
+    "app_title" : "Block Explorer",
+    "corp" : "Diamond Network",
+    "title": {
+      "block": "Blocks",
+      "account": "Accounts",
+      "asset" : "Assets",
+      "dashboard" : "Dashboard"
+    },
+    "dashboard" : {
+      "blockHeight" : "Block Height",
+      "totalTx" : "Total Tx",
+      "totalAccount" : "Total Accounts",
+      "totalAsset" :"Total Assets",
+      "latestBlock": "Latest Blocks",
+      "latestTx": "Latest Transactions",
+      "height": "Height",
+      "reward": "Reward",
+      "sent": "Sent",
+      "txCounts": "Tx Counts",
+      "createdAt": "Created At",
+      "txHash": "Hash",
+      "type": "Type",
+      "sender": "Sender",
+      "recipient": "Recipient",
+      "quantity": "Quantity"
+    },
+    "search": {
+      "button" : "Search",
+      "placeholder" : "Search for Block,Account,Transaction"
+    },
+    "block" : {
+      "generator" : "Miner",
+      "blockInfo" : "Block Info",
+      "txInfo" : "Tx Info",
+      "sign" : "Signature",
+      "version" : "Version",
+      "size" : "Size",
+      "fee" : "Fee"
+    },
+    "transaction" : {
+      "transfer" : "Ordinary Payment",
+      "batch" : "Batch Payment",
+      "assetIssue" : "Issue Asset",
+      "assetTransfer" : "Asset Payment",
+      "ask" : "Ask Order",
+      "bid" : "Bid Order",
+      "cancelAsk" : "Cancel Ask Order",
+      "cancelBid" : "Cancel Bid Order",
+      "attachment" : "Attachment"
+    },
+    "account" : {
+      "name" : "Account Name",
+      "assetCounts" : "Asset Counts",
+      "received" : "Received",
+      "sent" : "Sent",
+      "balance" : "Balance(DKD)",
+      "info" : "Account Info",
+      "tx" : "Account Transactions",
+      "asset" : "Account Assets",
+      "frozen" : "Frozen Balance",
+      "share" : "Asset Share"
+    },
+    "asset" : {
+      "name" : "Asset Name",
+      "id" : "Asset ID",
+      "height" : "Creation Height",
+      "issuer" : "Issuer",
+      "total" : "Total",
+      "info" : "Asset Info",
+      "tx" : "Asset Transactions",
+      "account" : "Asset Accounts",
+      "description" : "Description",
+      "holderNum" : "Holder Counts",
+      "quantity" : "Quantity"
+    }
+  }

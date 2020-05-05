@@ -1,0 +1,112 @@
+
+.App {
+  text-align: center;
+  font-size: 12px;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+.ant-table-thead > tr:first-child > th:first-child {
+  border-top-left-radius: 0px !important;
+}
+.ant-table-thead > tr:first-child > th:last-child {
+  border-top-right-radius: 0px !important;
+}
+
+.ant-pagination-item-active {
+  background: #1890ff !important;
+ 
+}
+
+.ant-pagination-item-active a {
+  color: white !important;
+}
+
+.ant-table-thead > tr > th {
+  text-align: center !important;
+}
+
+.row-style {
+  text-align: left !important;
+}
+
+.ant-table table {
+  text-align: center !important;
+}
+
+.ant-input {
+  background-color: #1E2033;
+  color: white;
+}
+
+.ant-input-search-icon  {
+  color: white !important;
+}
+
+.ant-menu-item-selected {
+  background-color: #1E2033 !important;
+}
+
+.ant-menu-horizontal {
+  line-height: 30px;
+}
+
+.ant-table-pagination.ant-pagination {
+  float: none !important;
+  margin: 16px 0;
+}
+
+.ant-tabs-nav {
+  float: left;
+}
+
+.ant-tabs-nav .ant-tabs-tab-active {
+  color: #1E2033 !important;
+}
+
+@media screen and (min-width:50px) {
+  .content-padding {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .pc {
+    display: none;
+  }
+
+  .mobile {
+    display: block;
+  }
+}
+
+@media screen and (min-width:768px) {
+  .content-padding {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  .pc {
+    display: block;
+  }
+
+  .mobile {
+    display: none;
+  }
+}
