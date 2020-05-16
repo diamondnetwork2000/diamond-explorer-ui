@@ -1,5 +1,5 @@
 import dateFormat from 'dateformat';
-//id字段太长，只显示缩略内容
+//wrap long content to a short one
 export function wrap(content) {
   if (content.length < 6) {
     return content;

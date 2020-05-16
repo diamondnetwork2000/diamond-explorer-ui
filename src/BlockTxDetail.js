@@ -1,4 +1,4 @@
-//解决IE里因为缺少Map而无法打开的问题 https://reactjs.org/docs/javascript-environment-requirements.html
+//Fix IE issue https://reactjs.org/docs/javascript-environment-requirements.html
 import 'core-js/es/map';
 import 'core-js/es/set';
 import React,{useState} from 'react';
@@ -28,14 +28,14 @@ const columns = (props) => {
   const { setModal1Visible } = props;
   return [
     {
-      title: '高度',
+      title: 'Height',
       width: 100,
       dataIndex: 'name',
       key: 'name',
       render: text => (<span>{text}</span>),
     },
     {
-      title: '创建时间',
+      title: 'Created At',
       dataIndex: 'value',
       key: 'value',
 
@@ -182,28 +182,28 @@ const orderColumns = (props) => {
   const { setModal1Visible,t } = props;
   return [
     {
-      title: '资产名称',
+      title: 'Asset Name',
      
       dataIndex: 'orderAssetName',
       key: 'hash',
       render: text => (<span>{text}</span>),
     },
     {
-      title: '价格',
+      title: 'Price',
     
       dataIndex: 'orderPrice',
       key: 'orderPrice',
       render: text => (<span>{formatToken(text)}</span>),
     },
     {
-      title: '价格单位',
+      title: 'Price Unit',
      
       dataIndex: 'orderQuoteAssetName',
       key: 'orderQuoteAssetName',
       render: text => (<span>{text}</span>),
     },
     {
-      title: '资产数量',
+      title: 'Quantity',
       dataIndex: 'orderQuantity',
       key: 'orderQuantity',
 
@@ -271,7 +271,7 @@ function BlockTxDetail() {
         } else if (mockBlockDetail.subType == 1) {
           setTxType("assetTransfer");
         } else {
-          //2,3,4,5都是资产订单相关
+          //2,3,4,5 is related to order
           setTxType("assetOrder");
         }
       }

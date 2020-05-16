@@ -1,4 +1,4 @@
-//解决IE里因为缺少Map而无法打开的问题 https://reactjs.org/docs/javascript-environment-requirements.html
+//Fix IE issue https://reactjs.org/docs/javascript-environment-requirements.html
 import 'core-js/es/map';
 import 'core-js/es/set';
 import React, { Component,Suspense } from 'react';
@@ -47,18 +47,14 @@ class App extends React.Component {
   }
 
   search(value) {
-    if (value.startsWith("1x")) {
-      //账号, 直接用createBrowserHistory构建出来的history和Router没有关联，调用push后地址栏变了，但是页面不会跳转
-      //必须是在外面传进来的history上操作才会跳转
-      //使用hisotry.push的时候，如果当前页面已经在accounts上，那么页面不会刷新，
-     // this.props.history.push("/accounts/" + value);
+    if (value.startsWith("dkd")) {
       window.location = "/accounts/" + value;
     } else if (value.length <= "1000000000".length) {
-      //区块 -- 假设高度不会超过一亿
+      //block -- assume that the block height is less than 1000000000
      // this.props.history.push("/blocks/height/" + value);
       window.location = "/blocks/height/" + value;
-    } else if (value.length == "c115ce9edb59064d0200e61ecf4f0473c5ccc123a4863caae9065b4de885c731".length) {
-       //交易
+    } else if (value.length == "D8FEE137CBA8C2766F4F92CF97FED0623F026628507B3DB5607064BCDC32FBB9".length) {
+       //transaction
        window.location = "/blocks/transaction/" + value;
        //this.props.history.push("/blocks/transaction/" + value);
     } 

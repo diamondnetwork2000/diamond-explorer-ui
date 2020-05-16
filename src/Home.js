@@ -1,4 +1,4 @@
-//解决IE里因为缺少Map而无法打开的问题 https://reactjs.org/docs/javascript-environment-requirements.html
+//Fix IE issue https://reactjs.org/docs/javascript-environment-requirements.html
 import 'core-js/es/map';
 import 'core-js/es/set';
 import React from 'react';
@@ -138,7 +138,7 @@ class Home extends React.Component {
 
 
   detailTitle() {
-    return "区块" + this.state.blockHeight;
+    return "Block" + this.state.blockHeight;
   }
 
 

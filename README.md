@@ -69,17 +69,17 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 
-### 样式定制
+### customize css style
 
 yarn add less less-loader
 yarn add react-app-rewired customize-cra
 yarn add babel-plugin-import
 
-然后在项目根目录创建一个 config-overrides.js 用于修改默认配置。
+and then create a file named config-overrides.js for customized configurations.
 
-详情：https://ant.design/docs/react/customize-theme-cn
+Refer to https://ant.design/docs/react/customize-theme-cn for more details
 
-### Nginx部署
+### Nginx Deployment
 
 location / {
          root /opt/burst-explorer-ui/build;

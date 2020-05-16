@@ -1,4 +1,4 @@
-//解决IE里因为缺少Map而无法打开的问题 https://reactjs.org/docs/javascript-environment-requirements.html
+//fix the issue in IE https://reactjs.org/docs/javascript-environment-requirements.html
 import 'core-js/es/map';
 import 'core-js/es/set';
 import React,{useState} from 'react';
@@ -22,14 +22,14 @@ const columns = (props) => {
   const { setModal1Visible } = props;
   return [
     {
-      title: '高度',
+      title: 'Height',
       width: 100,
       dataIndex: 'name',
       key: 'name',
       render: text => (<span>{text}</span>),
     },
     {
-      title: '创建时间',
+      title: 'Created At',
       dataIndex: 'value',
       key: 'value',
 

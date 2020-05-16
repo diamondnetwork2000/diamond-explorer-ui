@@ -1,4 +1,4 @@
-//解决IE里因为缺少Map而无法打开的问题 https://reactjs.org/docs/javascript-environment-requirements.html
+//Fix IE issues https://reactjs.org/docs/javascript-environment-requirements.html
 import 'core-js/es/map';
 import 'core-js/es/set';
 import React from 'react';
@@ -34,33 +34,33 @@ const columns = (props) => {
   const { setModal1Visible } = props;
   return [
     {
-      title: '高度',
+      title: 'Height',
       dataIndex: 'height',
       key: 'height',
       render: text => <Link to={`/blocks/height/${text}`}>{text}</Link>,
     },
     {
-      title: '创建时间',
+      title: 'Created At',
       dataIndex: 'createdAt',
       key: 'createdAt',
 
       render: text => <a onClick={() => setModal1Visible(true)}>{format(text)}</a>,
     },
     {
-      title: '奖励金额',
+      title: 'Reward',
       dataIndex: 'reward',
       key: 'reward',
       render: text => <a>{parseFloat(parseInt(text) / 100000000).toFixed(2)}</a>,
     },
     {
-      title: '发送金额',
+      title: 'Sent',
       key: 'sent',
       dataIndex: 'sent',
       render: text => <a>{parseFloat(parseInt(text) / 100000000).toFixed(2)}</a>,
 
     },
     {
-      title: '交易',
+      title: 'TX',
       key: 'tx',
       dataIndex: 'tx',
       render: (text, record) => (
@@ -70,7 +70,7 @@ const columns = (props) => {
       ),
     },
     {
-      title: '挖矿账号',
+      title: 'Generator',
       key: 'generator',
       dataIndex: 'generator',
       render: (text, record) => (
@@ -98,7 +98,7 @@ class Stats extends React.Component {
 
 
   detailTitle() {
-    return "区块" + this.state.blockHeight;
+    return "Block" + this.state.blockHeight;
   }
 
   componentDidMount() {
