@@ -20,7 +20,7 @@ export function formatFee(quantity) {
 }
 
 export function formatToken(quantity) {
-  let  formated =  parseInt(quantity)/1000000;
+  let  formated =  parseInt(quantity)/100000000;
   return formated.toFixed(2);
 }
 
@@ -32,31 +32,14 @@ export function formatTime(timestamp) {
 
 export function txType2String(type, subType) {
 
-  if (type == 0) {
-    if (subType == 0) {
-      return "transaction.transfer";
-    } else {
-      return "transaction.batch";
-    }
-  } else if (type == 2) {
-    if (subType == 0) {
-      return "transaction.assetIssue"
-    } else if (subType == 1) {
-      return "transaction.assetTransfer"
-    }else if (subType == 2) {
-      return "transaction.ask"
-    } else if (subType == 3) {
-      return "transaction.bid"
-    }else if (subType == 4) {
-      return "transaction.cancelAsk"
-    }else if (subType == 5) {
-      return "transaction.cancelBid"
-    }
-    
-  } else if (type == "TRANSFER") {
+  if (type == "TRANSFER") {
     return "transaction.transfer";
   }  else if (type == "ISSUE_TOKEN") {
     return "transaction.assetIssue"
+  } else if (type == "TRANSFER_OWNERSHIP") {
+    return "transaction.transferOwnership"
+  } else if (type == "MINT_TOKEN") {
+    return "transaction.mintToken"
   }
 
 }

@@ -21,6 +21,9 @@ function callback(key) {
 function accountLink(account) {
   return  <Link to={`/accounts/${account}`}>{account}</Link>;
 }
+function blockLink(account) {
+  return  <Link to={`/blocks/height/${account}`}>{account}</Link>;
+}
 function rowStyle(record, index) {
   return "row-style";
 }
@@ -41,7 +44,7 @@ const columns = (props) => {
 
       render: (text,record) => {
         if (record.element == undefined) {
-          return <span onClick={() => setModal1Visible(true)}>{text}</span>;
+          return <span >{text}</span>;
         } else {
           return record.element;
         }
@@ -75,20 +78,7 @@ const txColumns = (props) => {
 
       render: text => <Link to={`/accounts/${text}`}>{text}</Link>,
     },
-    {
-      title:  t('dashboard.recipient'),
-      dataIndex: 'recipient',
-      key: 'recipient',
-
-      render: text => <Link to={`/accounts/${text}`}>{text}</Link>,
-    },
-    {
-      title:  t('dashboard.quantity'),
-      dataIndex: 'quantity',
-      key: 'quantity',
-
-      render: text => <span >{formatFee(text)}</span>,
-    },
+   
     {
       title:  t('block.fee'),
       dataIndex: 'fee',
@@ -112,15 +102,23 @@ const transferColumns  = (props) => {
     {
       title: t("asset.name"),
      
-      dataIndex: 'assetName',
-      key: 'assetName',
+      dataIndex: 'token',
+      key: 'token',
       render: text => (<span>{text}</span>),
+    },
+
+    {
+      title: t("dashboard.recipient"),
+     
+      dataIndex: 'recipient',
+      key: 'recipient',
+      render: text => <Link to={`/accounts/${text}`}>{text}</Link>,
     },
    
     {
       title: t("asset.quantity"),
-      dataIndex: 'quantityQNT',
-      key: 'quantityQNT',
+      dataIndex: 'amount',
+      key: 'amount',
 
       render: text => <span >{formatToken(text)}</span>,
     }
@@ -227,10 +225,10 @@ function BlockTxDetail() {
   let { txHash } = useParams();
   let {t} = useTranslation();
   const [data, setData] = useState([]);
-  const [attachment, setAttachment] = useState([]);
+  const [transfers, setTransfers] = useState([]);
   const [tx, setTx] = useState([]);
-  const [isOrder, setIsOrder] = useState(false);
-  const [txType, setTxType] = useState("transfer");
+  
+ 
   
 
 
@@ -255,30 +253,12 @@ function BlockTxDetail() {
       var tx = [];
       tx.push(mockBlockDetail);
       setTx(tx)
-      var attachment = [];
-      attachment.push(mockBlockDetail.attachment);
-      setAttachment(attachment);
-
-      if (mockBlockDetail.type == 0) {
-        if (mockBlockDetail.subType == 1) {
-          
-          setAttachment(mockBlockDetail.attachment.recipients);
-          setTxType("batch");
-        }
-      } else if (mockBlockDetail.type == 2) {
-        if (mockBlockDetail.subType == 0) {
-          setTxType("assetIssue");
-        } else if (mockBlockDetail.subType == 1) {
-          setTxType("assetTransfer");
-        } else {
-          //2,3,4,5 is related to order
-          setTxType("assetOrder");
-        }
-      }
+     
+      setTransfers(mockBlockDetail.transfers);
 
       var data = [];
 
-      data.push({ 'name': t('dashboard.height'), value: mockBlockDetail.block.height });
+      data.push({ 'name': t('dashboard.height'), value: mockBlockDetail.block.height,element: blockLink(mockBlockDetail.block.height) });
       data.push({ 'name': t('dashboard.txCounts'), value: mockBlockDetail.block.txNum });
       data.push({ 'name': t('dashboard.createdAt'), value: (mockBlockDetail.block.createdAt) });
       data.push({ 'name': t('dashboard.sent'), value: formatFee(mockBlockDetail.block.sent) });
@@ -311,45 +291,18 @@ function BlockTxDetail() {
         t:t
       })} dataSource={tx} pagination={false}/>
 
-      {
-         txType == "assetIssue" && 
-         <div style={{marginTop:10}}>
-           <div style={{display:'flex', marginBottom:10}}> <div>{t('transaction.attachment')}</div></div>
-          
-         <Table  columns={issueColumns({  t:t
-        })} dataSource={attachment} pagination={false}/>
-        </div>
-      }
-
+   
         {
-         txType == "assetTransfer" && 
+         transfers.length > 0 && 
          <div style={{marginTop:10}}>
-           <div style={{display:'flex', marginBottom:10}}> <div>{t('transaction.attachment')}</div></div>
+           <div style={{display:'flex', marginBottom:10}}> <div>{t('transaction.transfer')}</div></div>
           
          <Table  columns={transferColumns({  t:t
-        })} dataSource={attachment} pagination={false}/>
+        })} dataSource={transfers} pagination={false}/>
         </div>
       }
 
-       {
-         txType == "batch" && 
-         <div style={{marginTop:10}}>
-           <div style={{display:'flex', marginBottom:10}}> <div>{t('transaction.attachment')}</div></div>
-          
-         <Table  columns={batchColumns({  t:t
-        })} dataSource={attachment} pagination={false}/>
-        </div>
-      }
-
-      {
-         txType == "assetOrder" && 
-         <div style={{marginTop:10}}>
-           <div style={{display:'flex', marginBottom:10}}> <div>{t('transaction.attachment')}</div></div>
-          
-         <Table  columns={orderColumns({  t:t
-        })} dataSource={tx} pagination={false}/>
-        </div>
-      }
+     
       
     </div>
   );

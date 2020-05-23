@@ -112,16 +112,10 @@ const assetColumns = (props) => {
       key: 'assetName',
 
       render: (text,record) =>  {
-        return <Link to={`/assets/${record.assetStrId}`}>{text}</Link>
+        return <Link to={`/assets/${record.assetName}`}>{text}</Link>
       }
     },
-    {
-      title: t('asset.height'),
-      width: 100,
-      dataIndex: 'height',
-      key: 'height',
-      render: text =>  <Link to={`/blocks/height/${text}`}>{text}</Link>,
-    },
+   
     {
       title: t('account.balance'),
       dataIndex: 'quantity',

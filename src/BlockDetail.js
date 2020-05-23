@@ -38,7 +38,7 @@ const columns = (props) => {
 
             render: (text,record) => {
                 if (record.element == undefined) {
-                  return <span onClick={() => setModal1Visible(true)}>{text}</span>;
+                  return <span >{text}</span>;
                 } else {
                   return record.element;
                 }
@@ -57,14 +57,14 @@ function accountLink(account) {
     return  <span  style={{ wordBreak: 'break-all'}} >{account}</span >;
   }
 const txColumns = (props) => {
-    const { setModal1Visible,t } = props;
+    const { t } = props;
     return [
         {
             title: t('dashboard.txHash'),
             width: 100,
             dataIndex: 'hash',
             key: 'hash',
-            render: text => (<span>{text}</span>),
+            render: text => (<Link to={`/blocks/transaction/${text}`}>{text}</Link>),
         },
         {
             title: t('dashboard.type'),
@@ -78,14 +78,14 @@ const txColumns = (props) => {
             dataIndex: 'sender',
             key: 'sender',
 
-            render: text => <a onClick={() => setModal1Visible(true)}>{text}</a>,
+            render: text => <Link to={`/accounts/${text}`}>{text}</Link>,
         },
         {
             title: t('dashboard.recipient'),
             dataIndex: 'recipient',
             key: 'recipient',
 
-            render: text => <a onClick={() => setModal1Visible(true)}>{text}</a>,
+            render: text => <Link to={`/accounts/${text}`}>{text}</Link>,
         },
         {
             title: t('dashboard.quantity'),

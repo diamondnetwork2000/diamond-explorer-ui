@@ -273,12 +273,15 @@ function accountPageChange(assetId) {
           })} dataSource={tx} pagination={{pageSize:50,total:totalTx}} onChange={assetPageChange(assetId)}/>
 
         </TabPane>
+
+       {/*注释
         <TabPane tab={t('asset.account')} key="3">
           <Table columns={accountColumns({
              t:t
           })} dataSource={accounts} pagination={{pageSize:50,total:totalAccount}} onChange={accountPageChange}/>
 
         </TabPane>
+        */}
 
       </Tabs>
 

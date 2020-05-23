@@ -31,13 +31,13 @@
       "placeholder" : "Search for Block,Account,Transaction"
     },
     "block" : {
-      "generator" : "Miner",
+      "generator" : "Validator",
       "blockInfo" : "Block Info",
       "txInfo" : "Tx Info",
       "sign" : "Signature",
       "version" : "Version",
       "size" : "Size",
-      "fee" : "Fee"
+      "fee" : "Fee(DGSS)"
     },
     "transaction" : {
       "transfer" : "Ordinary Payment",
@@ -48,14 +48,17 @@
       "bid" : "Bid Order",
       "cancelAsk" : "Cancel Ask Order",
       "cancelBid" : "Cancel Bid Order",
-      "attachment" : "Attachment"
+      "attachment" : "Attachment",
+      "transferOwnership" : "Transfer ownership",
+      "mintToken" : "Mint Asset"
     },
     "account" : {
       "name" : "Account Name",
       "assetCounts" : "Asset Counts",
       "received" : "Received",
       "sent" : "Sent",
-      "balance" : "Balance(DKD)",
+      "balanceDkd" : "Balance(DKD)",
+      "balance" : "Balance",
       "info" : "Account Info",
       "tx" : "Account Transactions",
       "asset" : "Account Assets",

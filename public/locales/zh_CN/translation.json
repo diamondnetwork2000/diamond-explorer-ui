@@ -32,13 +32,13 @@
       "quantity": "金额(DKD)"
     },
     "block" : {
-      "generator" : "挖矿账号",
+      "generator" : "验证者账号",
       "blockInfo" : "区块信息",
       "txInfo" : "交易信息",
       "sign" : "签名",
       "version" : "版本",
       "size" : "区块大小",
-      "fee" : "手续费"
+      "fee" : "手续费(DGSS)"
     },
     "transaction" : {
       "transfer" : "普通转账",
@@ -49,14 +49,17 @@
       "bid" : "买单",
       "cancelAsk" : "取消卖单",
       "cancelBid" : "取消买单",
-      "attachment" : "交易数据"
+      "attachment" : "交易数据",
+      "transferOwnership" : "转移资产拥有权",
+      "mintToken" : "增发资产"
     },
     "account" : {
       "name" : "账户名称",
       "assetCounts" : "持有资产个数",
       "received" : "接收金额",
       "sent" : "发送金额",
-      "balance" : "余额(DKD)",
+      "balance" : "余额",
+      "balanceDkd" : "余额(DKD)",
       "info" : "账户信息",
       "tx" : "账户交易",
       "asset" : "账户资产",

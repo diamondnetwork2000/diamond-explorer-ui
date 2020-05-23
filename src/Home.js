@@ -40,7 +40,7 @@ const columns = (props) => {
       title: t('block.generator'),
       dataIndex: 'generator',
       key: 'generator',
-      render: text => <span>{(text)}</span>,
+      render: text => <Link to={`/accounts/${text}`}>{(text)}</Link>,
     },
     {
       title: t('dashboard.txCounts'),
