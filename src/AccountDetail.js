@@ -262,13 +262,13 @@ function AccountDetail() {
         <TabPane tab={t('account.tx')}  key="2">
           <Table columns={txColumns({
            t:t
-          })} dataSource={tx} pagination={{pageSize:50,total:totalTx}} onChange={txPageChange(accountId)} />
+          })} scroll={{x:true}} dataSource={tx} pagination={{pageSize:50,total:totalTx}} onChange={txPageChange(accountId)} />
 
         </TabPane>
         <TabPane tab={t('account.asset')}  key="3">
           <Table columns={assetColumns({
                t:t
-          })} dataSource={assets} />
+          })} scroll={{x:true}} dataSource={assets} />
         </TabPane>
       </Tabs>
 

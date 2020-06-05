@@ -211,8 +211,8 @@ function accountPageChange(assetId) {
   data.push({ 'name': t('asset.height'), value: mockAssetDetail.creationHeight });
   data.push({ 'name': t('dashboard.createdAt'), value: (mockAssetDetail.createdAt) });
   data.push({ 'name': t('asset.issuer'), value: mockAssetDetail.issuer, element:accountLink(mockAssetDetail.issuer) });
-  data.push({ 'name': t('asset.total'), value: mockAssetDetail.totalSupply  });
-  data.push({ 'name': t('dashboard.txCounts'), value: mockAssetDetail.transferNum });
+  data.push({ 'name': t('asset.total'), value: formatToken(mockAssetDetail.totalSupply)  });
+  //data.push({ 'name': t('dashboard.txCounts'), value: mockAssetDetail.transferNum });
   data.push({ 'name': t('asset.holderNum'), value: mockAssetDetail.holderNum });
 
       setData(data)
@@ -270,7 +270,7 @@ function accountPageChange(assetId) {
         <TabPane tab={t('asset.tx')} key="2">
           <Table columns={txColumns({
               t:t
-          })} dataSource={tx} pagination={{pageSize:50,total:totalTx}} onChange={assetPageChange(assetId)}/>
+          })} scroll={{x:true}} dataSource={tx} pagination={{pageSize:50,total:totalTx}} onChange={assetPageChange(assetId)}/>
 
         </TabPane>
 

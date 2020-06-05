@@ -61,7 +61,7 @@ const columns = (props) => {
       dataIndex: 'generator',
       render: (text, record) => (
         <span>
-         <Link to={`/accounts/${text}`}>{wrap(text)}</Link>,
+         <Link to={`/accounts/${text}`}>{wrap(text)}</Link>
         </span>
       ),
     },

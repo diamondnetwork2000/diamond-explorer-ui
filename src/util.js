@@ -5,8 +5,20 @@ export function wrap(content) {
     return content;
   }
   let start = content.substring(0,4);
-  let end = content.substring(content.length - 4, content.length);
+  let end = content.substring(content.length - 6, content.length);
   return start + "..." + end;
+}
+
+export function multiline(content, lines) {
+  let eachLine = content.length / lines;
+  let start = content.substring(0,eachLine) + "\n";
+  for (var i =1; i < lines -1; ++i) {
+    start += content.substring(i * eachLine, )
+  }
+
+  start += content.substring((lines - 1) * eachLine, content.length);
+
+  return start;
 }
 
 export function formatQuantity(quantity) {
@@ -20,8 +32,30 @@ export function formatFee(quantity) {
 }
 
 export function formatToken(quantity) {
-  let  formated =  parseInt(quantity)/100000000;
+  let  formated =  parseInt(toFixed(quantity))/100000000;
   return formated.toFixed(2);
+}
+
+export function formatPrice(quantity) {
+  let  formated =  parseInt(quantity)/100000000;
+  return formated.toFixed(4);
+}
+function toFixed(x) {
+  if (Math.abs(x) < 1.0) {
+    var e = parseInt(x.toString().split('e-')[1]);
+    if (e) {
+        x *= Math.pow(10,e-1);
+        x = '0.' + (new Array(e)).join('0') + x.toString().substring(2);
+    }
+  } else {
+    var e = parseInt(x.toString().split('+')[1]);
+    if (e > 20) {
+        e -= 20;
+        x /= Math.pow(10,e);
+        x += (new Array(e+1)).join('0');
+    }
+  }
+  return x;
 }
 
 export function formatTime(timestamp) {
@@ -40,6 +74,14 @@ export function txType2String(type, subType) {
     return "transaction.transferOwnership"
   } else if (type == "MINT_TOKEN") {
     return "transaction.mintToken"
+  } else if (type == "CREATE_MARKET") {
+    return "transaction.createMarket"
+  } else if (type == "CANCEL_MARKET") {
+    return "transaction.cancelMarket"
+  } else if (type == "CREATE_ORDER") {
+    return "transaction.createOrder"
+  } else if (type == "CANCEL_ORDER") {
+    return "transaction.cancelOrder"
   }
 
 }

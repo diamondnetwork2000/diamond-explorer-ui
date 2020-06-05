@@ -10,10 +10,10 @@ import {
 import dateFormat from 'dateformat';
 import serverUrl from './config.js';
 import request from 'umi-request';
-import {wrap, formatQuantity,formatTime, formatFee,formatToken,txType2String} from './util.js';
+import {wrap, formatQuantity,multiline, formatFee,formatToken,txType2String,formatPrice} from './util.js';
 import { useTranslation, withTranslation, Trans } from 'react-i18next';
 import { tsExportAssignment } from '@babel/types';
-const { Paragraph } = Typography;
+const { Paragraph,Title } = Typography;
 const { TabPane } = Tabs;
 function callback(key) {
   console.log(key);
@@ -24,6 +24,17 @@ function accountLink(account) {
 function blockLink(account) {
   return  <Link to={`/blocks/height/${account}`}>{account}</Link>;
 }
+
+function textArea(account) {
+  return  <Paragraph>{account}</Paragraph>;
+}
+
+function formatSide(t,side) {
+  return  side === 1 ? t("transaction.bid") : t("transaction.ask");
+}
+
+
+
 function rowStyle(record, index) {
   return "row-style";
 }
@@ -57,13 +68,6 @@ const columns = (props) => {
 const txColumns = (props) => {
   const { setModal1Visible,t } = props;
   return [
-    {
-      title: t('dashboard.txHash'),
-      width: 100,
-      dataIndex: 'hash',
-      key: 'hash',
-      render: text => (<span>{text}</span>),
-    },
     {
       title:  t('dashboard.type'),
       dataIndex: 'type',
@@ -180,35 +184,50 @@ const orderColumns = (props) => {
   const { setModal1Visible,t } = props;
   return [
     {
-      title: 'Asset Name',
+      title:  t("transaction.market"),
      
-      dataIndex: 'orderAssetName',
-      key: 'hash',
+      dataIndex: 'tradingPair',
+      key: 'tradingPair',
       render: text => (<span>{text}</span>),
     },
     {
-      title: 'Price',
+      title: t("transaction.price"),
     
-      dataIndex: 'orderPrice',
-      key: 'orderPrice',
-      render: text => (<span>{formatToken(text)}</span>),
+      dataIndex: 'price',
+      key: 'price',
+      render: text => (<span>{formatPrice(text)}</span>),
     },
     {
-      title: 'Price Unit',
+      title: t("dashboard.quantity"),
      
-      dataIndex: 'orderQuoteAssetName',
-      key: 'orderQuoteAssetName',
+      dataIndex: 'quantity',
+      key: 'quantity',
       render: text => (<span>{text}</span>),
     },
     {
-      title: 'Quantity',
-      dataIndex: 'orderQuantity',
-      key: 'orderQuantity',
+      title: 'Side',
+      dataIndex: 'side',
+      key: 'side',
 
-      render: text => <span >{formatToken(text)}</span>,
+      render: text => <span >{formatSide(t,text)}</span>,
     },
    
 
+  ]
+};
+
+const messageColumns = (props) => {
+  const { setModal1Visible,t } = props;
+  return [
+   
+    {
+      title: t("transaction.content"),
+    
+      dataIndex: 'jsonContent',
+      key: 'jsonContent',
+      render: text => (<span>{text}</span>),
+    }
+  
   ]
 };
 const formItemLayout = {
@@ -227,12 +246,8 @@ function BlockTxDetail() {
   const [data, setData] = useState([]);
   const [transfers, setTransfers] = useState([]);
   const [tx, setTx] = useState([]);
-  
- 
-  
-
-
-
+  const [orders, setOrders] = useState([]);
+  const [messages, setMessages] = useState([]);
 
   React.useEffect(() => {
     console.log("block detail mounted: ", txHash);
@@ -253,8 +268,9 @@ function BlockTxDetail() {
       var tx = [];
       tx.push(mockBlockDetail);
       setTx(tx)
-     
+      setOrders(mockBlockDetail.orders);
       setTransfers(mockBlockDetail.transfers);
+      setMessages(mockBlockDetail.messages);
 
       var data = [];
 
@@ -267,6 +283,7 @@ function BlockTxDetail() {
       data.push({ 'name': t('block.generator'), value: mockBlockDetail.block.generator,element: accountLink(mockBlockDetail.block.generator) });
       data.push({ 'name': t('block.version'), value: mockBlockDetail.block.version });
       data.push({ 'name': t('block.size'), value: mockBlockDetail.block.size });
+      data.push({ 'name': t('dashboard.txHash'), value: multiline(txHash,2) });
       
       setData(data);
       
@@ -299,6 +316,26 @@ function BlockTxDetail() {
           
          <Table  columns={transferColumns({  t:t
         })} dataSource={transfers} pagination={false}/>
+        </div>
+      }
+
+      {
+         orders.length > 0 && 
+         <div style={{marginTop:10}}>
+           <div style={{display:'flex', marginBottom:10}}> <div>{t('transaction.transfer')}</div></div>
+          
+         <Table  columns={orderColumns({  t:t
+        })} dataSource={orders} pagination={false}/>
+        </div>
+      }
+
+      {
+         messages.length > 0 && 
+         <div style={{marginTop:10}}>
+           <div style={{display:'flex', marginBottom:10}}> <div>{t('transaction.transfer')}</div></div>
+          
+         <Table  columns={messageColumns({  t:t
+        })} dataSource={messages} pagination={false}/>
         </div>
       }
 

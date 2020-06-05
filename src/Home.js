@@ -40,7 +40,7 @@ const columns = (props) => {
       title: t('block.generator'),
       dataIndex: 'generator',
       key: 'generator',
-      render: text => <Link to={`/accounts/${text}`}>{(text)}</Link>,
+      render: text => <Link to={`/accounts/${text}`}>{wrap(text)}</Link>,
     },
     {
       title: t('dashboard.txCounts'),
@@ -221,7 +221,7 @@ class Home extends React.Component {
       <Table ordered columns={columns({
           setModal1Visible: this.setModal1Visible.bind(this),
           t:t
-        })} dataSource={this.state.blockList} pagination={{pageSize:20,total:this.state.totalBlock}}
+        })} scroll={{x:true}} dataSource={this.state.blockList} pagination={{pageSize:20,total:this.state.totalBlock}}
         onChange={this.blockPageChange.bind(this)}/>
      
      
@@ -233,7 +233,7 @@ class Home extends React.Component {
       <Table pagination={{pageSize:20,total:this.state.totalTx}} columns={txColumns({
           setModal1Visible: this.setModal1Visible.bind(this),
           t: t
-        })} dataSource={this.state.txList} onChange={this.txPageChange.bind(this)}/>
+        })} scroll={{x:true}} dataSource={this.state.txList} onChange={this.txPageChange.bind(this)}/>
       
         </div>
     

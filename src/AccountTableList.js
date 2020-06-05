@@ -29,14 +29,14 @@ const columns = (props) => {
       title: t('account.name'),
       dataIndex: 'address',
       key: 'address',
-      render: text => <Link to={`/accounts/${text}`}>{text}</Link>,
+      render: text => <Link to={`/accounts/${text}`}>{wrap(text)}</Link>,
     },
   
     {
       title: t('account.balance'),
       dataIndex: 'balance',
       key: 'balance',
-      render: text => <span>{parseFloat(parseInt(text) / 100000000).toFixed(2)}</span>,
+      render: text => <span>{formatQuantity(text)}</span>,
     },
    
    

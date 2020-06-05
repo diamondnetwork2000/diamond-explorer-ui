@@ -10,7 +10,7 @@ import mockAssetList from './mock/asset-list.js';
 import dateFormat from 'dateformat';
 import request from 'umi-request';
 import serverUrl from './config.js';
-import {wrap, formatQuantity,formatTime, formatFee,formatToken} from './util.js';
+import {wrap, formatQuantity,formatTime, formatFee,formatToken,toFixed} from './util.js';
 import { useTranslation, withTranslation, Trans } from 'react-i18next';
 import {
   BrowserRouter as Router,

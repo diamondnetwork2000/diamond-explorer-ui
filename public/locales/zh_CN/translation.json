@@ -51,7 +51,14 @@
       "cancelBid" : "取消买单",
       "attachment" : "交易数据",
       "transferOwnership" : "转移资产拥有权",
-      "mintToken" : "增发资产"
+      "mintToken" : "增发资产",
+      "createMarket" : "创建市场",
+      "cancelMarket" : "取消市场",
+      "createOrder" : "创建订单",
+      "cancelOrder" : "取消订单",
+      "price" : "订单价格",
+      "market" : "市场名称",
+      "content" : "消息详情"
     },
     "account" : {
       "name" : "账户名称",

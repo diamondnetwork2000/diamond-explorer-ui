@@ -50,7 +50,14 @@
       "cancelBid" : "Cancel Bid Order",
       "attachment" : "Attachment",
       "transferOwnership" : "Transfer ownership",
-      "mintToken" : "Mint Asset"
+      "mintToken" : "Mint Asset",
+      "createMarket" : "Create Market",
+      "cancelMarket" : "Cancel Market",
+      "createOrder" : "Create Order",
+      "cancelOrder" : "Cancel Order",
+      "price" : "Price",
+      "market" : "Market",
+      "content" : "Detail"
     },
     "account" : {
       "name" : "Account Name",
