@@ -17,7 +17,7 @@
     "react-app-rewired": "^2.1.5",
     "react-dom": "^16.11.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.2.0",
+    "react-scripts": "5.0.1",
     "umi-request": "^1.2.8",
     "react-i18next": "11.2.5",
     "core-js": "3.6.4",
